@@ -14,5 +14,9 @@ namespace Model
         public DateTime BirthDate { get; set; }
         public string Country { get; set; }
         public IList<Course> CoursesFollowed { get; set; }
+        public Student()
+        {
+            CoursesFollowed = new List<Course>();
+        }
     }
 }

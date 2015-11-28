@@ -9,9 +9,12 @@ namespace Model
 {
     public class SchoolContext : DbContext
     {
+
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Course> Courses { get; set; }
         static SchoolContext()
         {
-            Database.SetInitializer(new System.Data.Entity.DropCreateDatabaseIfModelChanges<SchoolContext>());
+            Database.SetInitializer(new ModelInitializer());
         }
 
         public SchoolContext()
