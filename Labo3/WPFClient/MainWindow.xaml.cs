@@ -31,15 +31,12 @@ namespace WPFClient
 
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            _context = new CompanyContext();
-            _customer = _context.Customers.First();
             Formulaire.DataContext = _customer;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            _customer.AccountBalance+=MontantAAjouterAuCompte.Value.Value;
-            _context.SaveChanges();
+            
         }
     }
 }
