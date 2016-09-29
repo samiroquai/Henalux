@@ -1,29 +1,28 @@
-﻿using com.rusanu.DBUtil;
+﻿using BankDAL.Tests.Properties;
+using com.rusanu.DBUtil;
 using Microsoft.SqlServer.Management.Common;
 using Microsoft.SqlServer.Management.Smo;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BankDAL.Tests
 {
     public class Helper
     {
-        public static void CreerBaseDeDonnees()
+        public static void ReinitialiserBaseDeDonnees()
         {
-            
-            using (SqlConnection conn = new SqlConnection(@"Data Source=(LocalDb)\MSSQLLOCALDB;Integrated Security=True;"))
+            using (SqlConnection conn = BankAccountManager.GetDatabaseConnection())
             {
                 conn.Open();
-                var tempPath=Path.GetTempFileName();
-                File.WriteAllText(tempPath,Properties.Resources.CreateDatabase);
-                //SqlCmd est une classe définie dans la librairie DbUtil, dont le code a été récupéré
-                //du repository GitHub https://github.com/rusanu/DbUtilSqlCmd
-                SqlCmd.ExecuteFile(conn,tempPath);
+                SqlCommand resetTableContentCommand = new SqlCommand(Resources.resettable, conn);
+                resetTableContentCommand.ExecuteNonQuery();
                 conn.Close();
             }
         }

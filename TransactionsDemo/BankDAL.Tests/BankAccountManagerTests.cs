@@ -10,7 +10,7 @@ namespace BankDAL.Tests
         public void AvantChaqueTest()
         {
             //On recrée la base de données afin d'avoir un état de départ connu.
-            Helper.CreerBaseDeDonnees();
+            Helper.ReinitialiserBaseDeDonnees();
         }
 
         [TestMethod]

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -9,20 +10,23 @@ namespace BankDAL
 {
     public class BankAccountManager
     {
-        public void TransfererArgent(string ibanOrigine, string ibanDestination, double montantATransferer)
+
+        public void TransfererArgent(string ibanOrigine, string ibanDestination, int montantATransferer)
         {
             using (SqlConnection cn = GetDatabaseConnection())
             {
                 cn.Open();
-                try
-                {
-                    DebiterDe(250, ibanOrigine, cn);
-                    CrediterDe(250, ibanDestination, cn);
-                }
-                finally
-                {
-                    cn.Close();
-                }
+                
+                    try
+                    {
+                        DebiterDe(montantATransferer, ibanOrigine, cn);
+                        CrediterDe(montantATransferer, ibanDestination, cn);
+                    }
+                    finally
+                    {
+                        cn.Close();
+                    }
+                
             }
         }
 
@@ -34,7 +38,7 @@ namespace BankDAL
             ExecuterRequeteEtVerifierImpact(command);
         }
 
-        private void DebiterDe(int montantARetirer, string iban, SqlConnection cn)
+        private void DebiterDe(int montantARetirer, string iban, SqlConnection cn          )
         {
             var command = new SqlCommand("UPDATE [CompteEnBanque] SET [Solde]=[Solde]-@montantARetirer WHERE [IBAN]=@iban", cn);
             command.Parameters.AddWithValue("@montantARetirer", montantARetirer);
@@ -49,9 +53,9 @@ namespace BankDAL
                 throw new BankAccountNotFoundException();
         }
 
-        public SqlConnection GetDatabaseConnection()
+        public static SqlConnection GetDatabaseConnection()
         {
-            return new SqlConnection(@"Data Source=(LocalDb)\MSSQLLOCALDB; Initial Catalog=TransactionsDemo;Integrated Security=True;");
+            return new SqlConnection(ConfigurationManager.ConnectionStrings["MyVeryPrimitiveBank"].ConnectionString);
         }
 
         public double ObtenirSolde(string iban)
