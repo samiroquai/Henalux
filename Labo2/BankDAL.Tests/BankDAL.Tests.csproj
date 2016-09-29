@@ -102,7 +102,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BankBusiness\BankDAL.csproj">
+    <ProjectReference Include="..\BankDAL\BankDAL.csproj">
       <Project>{0407d07e-3124-4c3e-8d8c-b3fe9027c529}</Project>
       <Name>BankDAL</Name>
     </ProjectReference>
