@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="be.happli.samuelscholtes.geoexample.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello Henallux!"
+        android:id="@+id/textView" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:text="Cette application illustre quelques utilisations de l'API Google Maps intégrée à Android."
+        android:id="@+id/Intro1" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Intro1"
+        android:text="N'oubliez pas de modifier la valeur de la clé (voir manifeste)."
+        android:id="@+id/Intro2" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Intro2"
+        android:text="Prenez le temps de lire:"
+        android:id="@+id/Intro3" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Intro3"
+        android:text="https://developers.google.com/maps/documentation/android-api/intents?hl=fr"
+        android:id="@+id/Intro4" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Intro4"
+        android:text="https://developers.google.com/maps/documentation/android-api/map"
+        android:id="@+id/Intro5" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Intro5"
+        android:text="https://developer.android.com/training/maps/index.html"
+        android:id="@+id/Intro6" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Afficher Carte avec repère"
+        android:id="@+id/button"
+        android:clickable="true"
+        android:onClick="showMapAndMarker"
+        android:layout_below="@+id/Intro6"
+        android:layout_alignParentStart="true"
+        android:nestedScrollingEnabled="false" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lancer guidage"
+        android:id="@+id/button2"
+        android:layout_below="@+id/button"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/button"
+        android:onClick="navigate" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Carte dans App"
+        android:id="@+id/button3"
+        android:layout_below="@+id/button2"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/button"
+        android:onClick="showMapInApp" />
+
+
+</RelativeLayout>
