@@ -52,6 +52,12 @@
         android:id="@+id/Intro6" />
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Intro6"
+        android:text="https://developer.android.com/training/location/retrieve-current.html"
+        android:id="@+id/Intro7" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -59,7 +65,7 @@
         android:id="@+id/button"
         android:clickable="true"
         android:onClick="showMapAndMarker"
-        android:layout_below="@+id/Intro6"
+        android:layout_below="@+id/Intro7"
         android:layout_alignParentStart="true"
         android:nestedScrollingEnabled="false" />
 
@@ -83,5 +89,25 @@
         android:layout_alignEnd="@+id/button"
         android:onClick="showMapInApp" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Position actuelle"
+        android:id="@+id/button4"
+        android:layout_below="@+id/button3"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/button"
+        android:onClick="showCurrentPosition" />
+    <TextView
+        android:id="@+id/lat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button4"/>
+    <TextView
+        android:id="@+id/lon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button4"
+        android:layout_toRightOf="@+id/lat"/>
 
 </RelativeLayout>
