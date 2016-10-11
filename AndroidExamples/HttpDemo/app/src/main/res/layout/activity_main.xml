@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="be.happli.samuelscholtes.httpdemo.MainActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/header"
+        android:text="Hello Henallux!"/>
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/header"
+    android:id="@+id/intro"
+    android:text="Cet exemple illustre l'exécution d'une requête HTTP, le parsing de son résultat et l'affichage de ce dernier sous forme de liste. Le service distant utilisé est celui d'OpenWeatherMaps. N'oubliez donc pas d'insérer votre AppKey (voir labo 5 du cours Env Dev Log) dans le code source de MainActivity afin de pouvoir tester.
+    Prenez le temps de lire les articles suivants pour plus d'informations. Exécution de requêtes HTTP: https://developer.android.com/training/volley/simple.html Ajout de Volley à votre projet Android: http://stackoverflow.com/questions/21065477/best-way-to-incorporate-volley-or-other-library-into-android-studio-project Parsing de Json en Android: http://www.androidhive.info/2012/01/android-json-parsing-tutorial/ ListView en Android: https://guides.codepath.com/android/Using-an-ArrayAdapter-with-ListView"/>
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+     android:layout_below="@+id/intro"
+        android:id="@+id/listItem"/>
+</RelativeLayout>
