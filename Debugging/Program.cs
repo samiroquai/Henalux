@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Henalllux.Ig.CSharp.Debugging
 {
@@ -11,10 +13,11 @@ namespace Henalllux.Ig.CSharp.Debugging
             Path.Combine(System.Environment.CurrentDirectory,
             "Employees.xlsx");
             var dal=new EmployeesDataAccess();
-            foreach(Employee customer in dal.Import(excelFilePath))
+            IEnumerable<Employee> employees = dal.Import(excelFilePath);
+            foreach(Employee employee in employees)
             {
-                if(customer.Position.Equals("Manager")){
-                    Console.WriteLine(customer.FirstName+" est un manager!");
+                if(employee.Position.Equals("Manager")){
+                    Console.WriteLine(employee.FirstName+" est un manager!");
                 }
             }
         }
